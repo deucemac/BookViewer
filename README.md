@@ -129,13 +129,13 @@ src
 
 |  Component   |    Type    | State | Props | Description                                                      |
 | :----------: | :--------: | :---: | :---: | :--------------------------------------------------------------- |
-|    Header    | functional |   n   |   n   | _The header will contain the logo and home button._               |
-|  Search  | class |   y   |   n   | _The search will let the user find additional info._       |
-
-|   Review    |   class    |   y   |   n   | _The review will let the user write a review._      |
-|   Book    |   function    |   n   |   y   | _The book will display detail of the selected book._      |
-| Books | functional |   n   |   y   | _The Books will be the homepage that displays a list._                 |
+|    Header    | functional |   n   |   n   | _The header will contain the logo and home button._              |
+|  Search      |    class   |   y   |   n   | _The search will let the user find additional info._             |
+|   Review     |   class    |   y   |   n   | _The review will let the user write a review._                   |
+|   Book       | functional |   n   |   y   | _The book will display detail of the selected book._             |
+|   Books      | functional |   n   |   y   | _The Books will be the homepage that displays a list._           |
 |    Footer    | functional |   n   |   n   | _The footer will show info about me and a link to my portfolio._ |
+
 
 <br>
 
