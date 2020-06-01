@@ -19,9 +19,7 @@ Access and review books from around the web
 
 ## Project Planning
 
-> This will application will provide the user information regarding 
->
-> To ensure correct Markdown, it's recommended that you copy and paste the raw template code. The content provided is example content ONLY. You must make changes to all sections as they relate to your own project.
+
 
 <br>
 
@@ -57,7 +55,10 @@ https://xd.adobe.com/view/5549ab60-97cd-4176-5eb5-117ce91bda4e-2378/ (url)
 
 ### MVP
 
-> The Minimum Viable Product should be a well-planned and easily-communicated product, ensuring that the client's deliverable will be achievable and meet specifications within the time frame estimated.
+> Display set of books on the homepage
+> Provide the user with option to select and find more information about the book subject, summary, genre, how to purchase
+> Provide the user with the option to leave a review for the book
+> Provide user with the option to search for additional books/authors/titles
 
 _The **Project Title** MVP lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus dapibus fermentum risus vitae bibendum. Integer vel ipsum mollis odio sollicitudin ornare eu vel ex. In quis fringilla velit, ac maximus quam. Etiam eget placerat neque. Aenean faucibus sem non nisi lobortis ullamcorper._
 
