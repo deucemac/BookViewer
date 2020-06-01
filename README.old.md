@@ -60,7 +60,7 @@ https://xd.adobe.com/view/5549ab60-97cd-4176-5eb5-117ce91bda4e-2378/ (url)
 > Provide the user with the option to leave a review for the book
 > Provide user with the option to search for additional books/authors/titles
 
-_The **Project Title** MVP lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus dapibus fermentum risus vitae bibendum. Integer vel ipsum mollis odio sollicitudin ornare eu vel ex. In quis fringilla velit, ac maximus quam. Etiam eget placerat neque. Aenean faucibus sem non nisi lobortis ullamcorper._
+_The **Book Viewer** MVP lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus dapibus fermentum risus vitae bibendum. Integer vel ipsum mollis odio sollicitudin ornare eu vel ex. In quis fringilla velit, ac maximus quam. Etiam eget placerat neque. Aenean faucibus sem non nisi lobortis ullamcorper._
 
 <br>
 
@@ -80,9 +80,7 @@ _The **Project Title** MVP lorem ipsum dolor sit amet, consectetur adipiscing el
 
 |     Library      | Description                                |
 | :--------------: | :----------------------------------------- |
-|   React Router   | _Lorem ipsum dolor sit amet, consectetur._ |
-| React SemanticUI | _Lorem ipsum dolor sit amet, consectetur._ |
-|   React Spring   | _Lorem ipsum dolor sit amet, consectetur._ |
+|   React Router   | _Move and navigate around an application_ |
 
 <br>
 
@@ -92,10 +90,14 @@ _The **Project Title** MVP lorem ipsum dolor sit amet, consectetur adipiscing el
 
 |    API     | Quality Docs? | Website       | Sample Query                            |
 | :--------: | :-----------: | :------------ | :-------------------------------------- |
-| WeatherAPI |      yes      | _example.com_ | _example.com/mickeymouse?s=movies&t=10_ |
+| Books API |      yes      | _https://developers.google.com/books/docs/v1/getting+started | _https://language.googleapis.com/v1/documents:analyzeEntities?key=API-KEY_ |
 
 ```
-JSON data sample from your API goes here.
+ async componentDidMount() {
+    const key = 'AIzaSyBK7wCWGpeeKHMxJA-2Y_OEigeDTqfpL-o'
+    const books = await axios(`https://www.googleapis.com/books/v1/volumes?q=patick+rothfuss&key%3D=${key}`)
+    console.log(books)
+  }
 ```
 
 <br>
@@ -108,16 +110,14 @@ JSON data sample from your API goes here.
 src
 |__ assets/
       |__ data-tests
-      |__ fonts
-      |__ graphics
       |__ images
-      |__ mockups
 |__ components/
       |__ Header.jsx
-      |__ Hero.jsx
-      |__ Ipsum.jsx
-      |__ Lorem.jsx
-      |__ CTA.jsx
+      |__ Search.jsx
+      |__ Review.jsx
+      |__ Book.jsx
+      |__ Books.jsx
+      |__ App.jsx
       |__ Footer.jsx
 ```
 
@@ -129,10 +129,12 @@ src
 
 |  Component   |    Type    | State | Props | Description                                                      |
 | :----------: | :--------: | :---: | :---: | :--------------------------------------------------------------- |
-|    Header    | functional |   n   |   n   | _The header will contain the navigation and logo._               |
-|  Navigation  | functional |   n   |   n   | _The navigation will provide a link to each of the pages._       |
-|   Gallery    |   class    |   y   |   n   | _The gallery will render the posts using cards in flexbox._      |
-| Gallery Card | functional |   n   |   y   | _The cards will render the post info via props._                 |
+|    Header    | functional |   n   |   n   | _The header will contain the logo and home button._               |
+|  Search  | class |   y   |   n   | _The search will let the user find additional info._       |
+
+|   Review    |   class    |   y   |   n   | _The review will let the user write a review._      |
+|   Book    |   function    |   n   |   y   | _The book will display detail of the selected book._      |
+| Books | functional |   n   |   y   | _The Books will be the homepage that displays a list._                 |
 |    Footer    | functional |   n   |   n   | _The footer will show info about me and a link to my portfolio._ |
 
 <br>
@@ -157,7 +159,7 @@ src
 
 |  Function  | Description                                |
 | :--------: | :----------------------------------------- |
-| Capitalize | _Lorem ipsum dolor sit amet, consectetur._ |
+| Search | _This is an important function to recycle to reuse for user search capabilities._ |
 
 <br>
 
