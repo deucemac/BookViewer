@@ -5,7 +5,6 @@ Access and review books from around the web
   - [Overview](#overview)
   - [Wireframes](#wireframes)
   - [MVP](#mvp)
-    - [Goals](#goals)
     - [Libraries](#libraries)
     - [Data](#data)
     - [Component Hierarchy](#component-hierarchy)
@@ -60,17 +59,10 @@ https://xd.adobe.com/view/5549ab60-97cd-4176-5eb5-117ce91bda4e-2378/ (url)
 > Provide the user with the option to leave a review for the book
 > Provide user with the option to search for additional books/authors/titles
 
-_The **Book Viewer** MVP lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus dapibus fermentum risus vitae bibendum. Integer vel ipsum mollis odio sollicitudin ornare eu vel ex. In quis fringilla velit, ac maximus quam. Etiam eget placerat neque. Aenean faucibus sem non nisi lobortis ullamcorper._
+_The **Book Viewer** _
 
 <br>
 
-#### Goals
-
-- _Lorem ipsum, dolor sit amet,_
-- _consectetur adipiscing elit._
-- _Phasellus dapibus fermentum risus vitae bibendum._
-- _Integer vel ipsum mollis odio sollicitudin ornare eu vel ex._
-- _etc._
 
 <br>
 
@@ -90,7 +82,7 @@ _The **Book Viewer** MVP lorem ipsum dolor sit amet, consectetur adipiscing elit
 
 |    API     | Quality Docs? | Website       | Sample Query                            |
 | :--------: | :-----------: | :------------ | :-------------------------------------- |
-| Books API |      yes      | _https://developers.google.com/books/docs/v1/getting+started | _https://language.googleapis.com/v1/documents:analyzeEntities?key=API-KEY_ |
+| Books API |      yes      | _https://developers.google.com/books/docs/v1/getting_started | _https://language.googleapis.com/v1/documents:analyzeEntities?key=API_KEY_ |
 
 ```
  async componentDidMount() {
@@ -182,7 +174,7 @@ src
 
 ### Code Showcase
 
-> Use this section to include a brief code snippet of functionality that you are proud of and a brief description.
+> 
 
 ```
 code snippet here
@@ -190,4 +182,4 @@ code snippet here
 
 ### Code Issues & Resolutions
 
-> Use this section to list of all major issues encountered and their resolution, if you'd like.
+> 
