@@ -59,7 +59,7 @@ https://xd.adobe.com/view/5549ab60-97cd-4176-5eb5-117ce91bda4e-2378/ (url)
 > Provide the user with the option to leave a review for the book
 > Provide user with the option to search for additional books/authors/titles
 
-_The **Book Viewer** _
+**Book Viewer** 
 
 <br>
 
