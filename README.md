@@ -19,7 +19,7 @@ Access and review books from around the web
 
 ## Project Planning
 
-> This section should be completed for your project pitch with instructors.
+> This will application will provide the user information regarding 
 >
 > To ensure correct Markdown, it's recommended that you copy and paste the raw template code. The content provided is example content ONLY. You must make changes to all sections as they relate to your own project.
 
@@ -29,37 +29,29 @@ Access and review books from around the web
 
 **Project Title** 
 
-**Project Description** is lorem ipsum dolor sit amet. Phasellus dapibus fermentum risus vitae bibendum. Integer vel ipsum mollis odio sollicitudin ornare eu vel ex. In quis fringilla velit, ac maximus quam. Etiam eget placerat neque. Aenean faucibus sem non nisi lobortis ullamcorper._
+**Project Description** For those fans of the Fantasy/Adventure genre, BookViewer is a web application that lets the user search through a diverse list of Fantasy/Sci-fi novels.  The user select different books and find out more information regarding the book summary, book review, and how to buy the book._
 
 <br>
 
 ### Wireframes
 
-> Use the Wireframes section to display desktop, tablet and mobile views.
+> Wireframes .
 
-![Dummy Link](url)
+https://xd.adobe.com/view/6346f60c-d628-4fcc-7551-ff5a2c895dd2-1577/ (url)
 
-- Desktop Landing
+- Desktop
 
-![Dummy Link](url)
+https://xd.adobe.com/view/c951a78e-a206-453e-795c-90b4cdb6573e-bf60/ (url)
 
-- Desktop Body
+- Tablet
 
-![Dummy Link](url)
+https://xd.adobe.com/view/112a6142-0245-4b37-6507-f7bba5807942-671b/ (url)
 
-- Desktop Resource Index
+- iPhone
 
-![Dummy Link](url)
+https://xd.adobe.com/view/5549ab60-97cd-4176-5eb5-117ce91bda4e-2378/ (url)
 
-- Desktop Resource Show
-
-![Dummy Link](url)
-
-- Tablet Resource Index
-
-![Dummy Link](url)
-
-- Mobile Resource Index
+- Details Page
 
 <br>
 
