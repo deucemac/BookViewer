@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import { Route, Link } from "react-router-dom";
 
 export default class BooksTolkien extends Component {
   state = {
@@ -26,10 +27,10 @@ export default class BooksTolkien extends Component {
     })
     console.log(bookList.splice(1, 1))
     console.log(bookList)
-    let filterList = bookList.map(item =>
-      <div>
-        <h2>{item.volumeInfo.title}</h2>
-        <img src={item.volumeInfo.imageLinks.thumbnail}/>
+    let filterList = bookList.map((item, index) =>
+      <div key={index}>
+        <Link><h2>{item.volumeInfo.title}</h2>
+        <img src={item.volumeInfo.imageLinks.thumbnail}/></Link>
       </div>)
     return (
       <div>

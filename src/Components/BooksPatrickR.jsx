@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import { Route, Link } from "react-router-dom";
+import BookDetails from './BookDetails'
 
 export default class BooksPatrickR extends Component {
   state = {
@@ -19,17 +21,17 @@ export default class BooksPatrickR extends Component {
   
   
   render() {
-    // const { key } = this.props
     let bookList = this.state.books.map((book, index) => { 
       if (index < 2)
         return <div key={index}>
-          <h2>{book.volumeInfo.title}</h2>
-          <img src={book.volumeInfo.imageLinks.thumbnail} />
+          <Link to={`/book/${book.id}`}><h2>{book.volumeInfo.title}</h2>
+          <img src={book.volumeInfo.imageLinks.thumbnail} /></Link>
         </div>
     })
     return (
       <div>
-        {bookList}
+        <Route>{bookList}</Route>
+        
       </div>
     )
   }

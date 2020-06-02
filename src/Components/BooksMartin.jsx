@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-
-
+import { Route, Link } from "react-router-dom";
 
 export default class BooksMartin extends Component {
   state = {
@@ -29,10 +28,10 @@ export default class BooksMartin extends Component {
        
     })
     console.log(bookList)
-    let finalList = bookList.map(book =>
-      <div>
-        <h2>{book.volumeInfo.title}</h2>
-        <img src={book.volumeInfo.imageLinks.thumbnail} />
+    let finalList = bookList.map((book, index) =>
+      <div key={index}>
+        <Link><h2>{book.volumeInfo.title}</h2>
+        <img src={book.volumeInfo.imageLinks.thumbnail} /></Link>
       </div>)
     return (
       <div>
