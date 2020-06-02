@@ -19,9 +19,13 @@ export default class BooksPatrickR extends Component {
   
   
   render() {
+    // const { key } = this.props
     let bookList = this.state.books.map((book, index) => { 
       if (index < 2)
-      return <div>{book.volumeInfo.title}</div>
+        return <div key={index}>
+          <h2>{book.volumeInfo.title}</h2>
+          <img src={book.volumeInfo.imageLinks.thumbnail} />
+        </div>
     })
     return (
       <div>
