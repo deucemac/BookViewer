@@ -2,9 +2,6 @@ import logo from './logo.svg';
 import './App.css';
 import React, { Component } from 'react'
 import Header from './Components/Header'
-// import BooksPatrickR from './Components/BooksPatrickR'
-// import BooksTolkien from './Components/BooksTolkien'
-// import BooksMartin from './Components/BooksMartin'
 import Input from './Components/Input'
 import axios from 'axios'
 import PublisherCollection from './Components/PublisherCollection'
@@ -28,15 +25,24 @@ export default class App extends Component {
     let booksPR = await axios(`https://www.googleapis.com/books/v1/volumes?q=patick+rothfuss&key%3D=${key}`)
     booksPR = booksPR.data.items
     booksPR.splice(2, 10)
+    
     let booksT = await axios(`https://www.googleapis.com/books/v1/volumes?q=ring+inauthor:tolkien&key%3D=${key}`)
     booksT = booksT.data.items
+    booksT.splice(0, 1)
+    console.log(booksT)
+    booksT.splice(1, 5)
+    booksT.splice(0, 1)
+    
     let booksGM = await axios(`https://www.googleapis.com/books/v1/volumes?q=songs+of+fire+ice+inauthor:martin&key%3D=${key}`)
     booksGM = booksGM.data.items
+    booksGM.splice(0, 1)
+    console.log(booksGM)
+    booksGM.splice(4, 4)
+
 
     this.setState({
       books: [...booksPR, ...booksT, ...booksGM]
     })
-    // console.log(books)
   }
 
 
