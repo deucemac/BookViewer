@@ -6,17 +6,19 @@ import Input from './Components/Input'
 import axios from 'axios'
 import PublisherCollection from './Components/PublisherCollection'
 import BookDetails from './Components/BookDetails';
-import { Link, Route } from 'react-router-dom';
+import { Link, Route, withRouter } from 'react-router-dom';
 
 
 
-export default class App extends Component {
+
+class App extends Component {
   constructor() {
     super()
 
     this.state = {
       searchedBooks: [],
-      books: []
+      books: [],
+      showDetail: false
     }
   }
 
@@ -47,7 +49,6 @@ export default class App extends Component {
 
 
   handleChange = async (e) => {
-
     if (e.target.value.length > 2) {
       let key = process.env.REACT_APP_TOKEN
       let books = await axios(`https://www.googleapis.com/books/v1/volumes?q=${e.target.value}&key%3D=${key}`)
@@ -56,38 +57,54 @@ export default class App extends Component {
         searchedBooks: books.data.items
       })
 
-    } else if (e.target.value.length < 2) {
+    } else {
       this.setState({
         searchedBooks: []
       })
     }
+    this.props.history.push('/')
   }
+
+  showDetail = () => {
+    this.setState({
+      showDetail: true 
+    })
+  }
+
+
 
   render() {
 
-
-    let searchedResults = this.state.searchedBooks !== [] ? this.state.searchedBooks.map((book, index) => {
+    // let searchedResults = this.state.searchedBooks !== [] ? 
+    let searchedResults = this.state.searchedBooks.map((book, index) => {
       return <div key={index}>
-        <Link to=''><h2>{book.volumeInfo.title}</h2>
+        <Link to={`/book/${book.id}`}><h2 onClick={this.showDetail}>{book.volumeInfo.title}</h2>
         {book.volumeInfo.imageLinks ?
           <img src={book.volumeInfo.imageLinks.thumbnail} /> : <h3>Waiting</h3>
         }</Link>
       </div>
-    }) : ''
-
+    })
+//  : ''
     return (
       <div>
         <Header />
-        <Input handleChange={this.handleChange} />
+        <Input handleChange={this.handleChange}/>
+        
 
-        {searchedResults}
         <Route path='/' exact>
-          <PublisherCollection books={this.state.books} />
-        </Route>
+        {this.state.searchedBooks.length === 0 &&
+        
+            <PublisherCollection books={this.state.books} />
+          }
+        {searchedResults}
+          </Route>
 
-        <Route path='/book/:bookId'>
-          <BookDetails bookInfo={this.state.books} />
-        </Route>
+          <Route path='/book/:bookId'>
+            <BookDetails bookInfo={this.state.books} searchedBooks={this.state.searchedBooks} />
+          </Route>
+           
+        
+        
 
       </div>
     )
@@ -96,4 +113,4 @@ export default class App extends Component {
 }
 
 
-
+export default withRouter(App)
