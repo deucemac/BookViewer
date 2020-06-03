@@ -5,8 +5,8 @@ import Header from './Components/Header'
 import Input from './Components/Input'
 import axios from 'axios'
 import PublisherCollection from './Components/PublisherCollection'
-// import BookDetails from './Components/BookDetails';
-import { Route } from 'react-router';
+import BookDetails from './Components/BookDetails';
+import { Link, Route } from 'react-router-dom';
 
 
 
@@ -25,14 +25,14 @@ export default class App extends Component {
     let booksPR = await axios(`https://www.googleapis.com/books/v1/volumes?q=patick+rothfuss&key%3D=${key}`)
     booksPR = booksPR.data.items
     booksPR.splice(2, 10)
-    
+
     let booksT = await axios(`https://www.googleapis.com/books/v1/volumes?q=ring+inauthor:tolkien&key%3D=${key}`)
     booksT = booksT.data.items
     booksT.splice(0, 1)
     console.log(booksT)
     booksT.splice(1, 5)
     booksT.splice(0, 1)
-    
+
     let booksGM = await axios(`https://www.googleapis.com/books/v1/volumes?q=songs+of+fire+ice+inauthor:martin&key%3D=${key}`)
     booksGM = booksGM.data.items
     booksGM.splice(0, 1)
@@ -68,10 +68,10 @@ export default class App extends Component {
 
     let searchedResults = this.state.searchedBooks !== [] ? this.state.searchedBooks.map((book, index) => {
       return <div key={index}>
-        <h2>{book.volumeInfo.title}</h2>
+        <Link to=''><h2>{book.volumeInfo.title}</h2>
         {book.volumeInfo.imageLinks ?
           <img src={book.volumeInfo.imageLinks.thumbnail} /> : <h3>Waiting</h3>
-        }
+        }</Link>
       </div>
     }) : ''
 
@@ -81,28 +81,19 @@ export default class App extends Component {
         <Input handleChange={this.handleChange} />
 
         {searchedResults}
-        <PublisherCollection books={this.state.books}/>
-        
-        {/* <Route path='/book/:bookId'>
-          <BookDetails bookInfo={this.state.books}  />
-        </Route> */}
-        
+        <Route path='/' exact>
+          <PublisherCollection books={this.state.books} />
+        </Route>
+
+        <Route path='/book/:bookId'>
+          <BookDetails bookInfo={this.state.books} />
+        </Route>
+
       </div>
     )
 
   }
 }
-
-
-
-
-
-
-
-
-
-
-
 
 
 

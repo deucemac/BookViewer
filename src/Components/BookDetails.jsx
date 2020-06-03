@@ -2,10 +2,10 @@ import React from 'react'
 import { withRouter } from 'react-router-dom'
 
 function BookDetails(props) {
-  const index = props.match.params.bookId
-   console.log(index)
+  const bookId = props.match.params.bookId
+   console.log(bookId)
   const selectedBook = props.bookInfo.find(book => {
-    return book.id == index
+    return book.id == bookId
   })
   console.log(selectedBook)
   return (
@@ -13,7 +13,6 @@ function BookDetails(props) {
       {selectedBook &&
         <div>
         <h1>{selectedBook.volumeInfo.title}</h1>
-        <h1>hello</h1>
       </div>}
     </>
   )
