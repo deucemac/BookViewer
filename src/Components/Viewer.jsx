@@ -1,20 +1,9 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-export default class Viewer extends Component {
-  constructor() {
-    super()
-    
-    this.state = {
-      
-    }
-
-  }
-  
-  render() {
-    return (
-      <div id='viewerCanvas' src={}>
-        
-      </div>
-    )
-  }
+export default function Viewer(props) {
+  return (
+    <div>
+      {}
+    </div>
+  )
 }

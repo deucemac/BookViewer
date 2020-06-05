@@ -1,13 +1,14 @@
 import logo from './logo.svg';
 import './App.css';
+import './Components/PublisherCollection.css'
 import React, { Component } from 'react'
 import Header from './Components/Header'
 import Input from './Components/Input'
 import axios from 'axios'
 import PublisherCollection from './Components/PublisherCollection'
 import BookDetails from './Components/BookDetails';
-import { Link, Route, withRouter } from 'react-router-dom';
 
+import { Link, Route, withRouter } from 'react-router-dom';
 
 
 
@@ -21,8 +22,10 @@ class App extends Component {
       showDetail: false
     }
   }
+  
 
   async componentDidMount() {
+    
     const key = process.env.REACT_APP_TOKEN
     let booksPR = await axios(`https://www.googleapis.com/books/v1/volumes?q=patick+rothfuss&key%3D=${key}`)
     booksPR = booksPR.data.items
@@ -76,19 +79,26 @@ class App extends Component {
   render() {
 
     // let searchedResults = this.state.searchedBooks !== [] ? 
-    let searchedResults = this.state.searchedBooks.map((book, index) => {
-      return <div key={index}>
-        <Link to={`/book/${book.id}`}><h2 onClick={this.showDetail}>{book.volumeInfo.title}</h2>
+    let searchedResults = this.state.searchedBooks && <div className='parent-publisher'> {this.state.searchedBooks.map((book, index) => {
+    return (
+          <div className='publisher'>
+        <Link to={`/book/${book.id}`}>
+            <h2 onClick={this.showDetail}>{book.volumeInfo.title}</h2>
         {book.volumeInfo.imageLinks ?
           <img src={book.volumeInfo.imageLinks.thumbnail} /> : <h3>Waiting</h3>
-        }</Link>
-      </div>
-    })
+            }
+        </Link>
+          </div>)  
+      
+    })}</div>
 //  : ''
     return (
-      <div>
-        <Header />
-        <Input handleChange={this.handleChange}/>
+      <>
+      <Header />
+      <div id="fb-root"></div>  
+      <div className='body'>
+      
+        <Input handleChange={this.handleChange} />
         
 
         <Route path='/' exact>
@@ -106,7 +116,8 @@ class App extends Component {
         
         
 
-      </div>
+        </div>
+        </>
     )
 
   }
