@@ -94,6 +94,11 @@ a {
   text-decoration: none;
 }
 
+footer {
+  height: 20vh;
+  background-color: rgb(230, 230, 230)
+}
+
 
 
 

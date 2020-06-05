@@ -7,6 +7,7 @@ import Input from './Components/Input'
 import axios from 'axios'
 import PublisherCollection from './Components/PublisherCollection'
 import BookDetails from './Components/BookDetails';
+import Footer from './Components/Footer'
 
 import { Link, Route, withRouter } from 'react-router-dom';
 
@@ -117,6 +118,7 @@ class App extends Component {
         
 
         </div>
+        <Footer />
         </>
     )
 
