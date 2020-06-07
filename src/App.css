@@ -101,6 +101,32 @@ footer {
 }
 
 
+@media all and (max-width: 400px) {
+  body {
+    border: 2px solid black;
+    margin: 0 auto;
+  }
+  .parent-publisher {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    text-align: center;
+  }
+
+  .publisher {
+    /* text-align: center; */
+    border: 2px solid black;
+    margin: 0 auto;
+  }
+
+  .publisher img {
+    margin-left: -27px;
+  }
+
+  
+}
+
+
 
 
 

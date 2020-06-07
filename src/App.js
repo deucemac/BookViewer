@@ -1,6 +1,5 @@
 import logo from './logo.svg';
 import './App.css';
-import './Components/PublisherCollection.css'
 import React, { Component } from 'react'
 import Header from './Components/Header'
 import Input from './Components/Input'
