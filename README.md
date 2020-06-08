@@ -10,8 +10,7 @@ Access and review books from around the web
     - [Component Hierarchy](#component-hierarchy)
     - [Component Breakdown](#component-breakdown)
     - [Component Estimates](#component-estimates)
-    - [Helper Functions](#helper-functions)
-  - [Post-MVP](#post-mvp)
+
 - [Project Delivery](#project-delivery)
   - [Code Showcase](#code-showcase)
   - [Code Issues & Resolutions](#code-issues--resolutions)
@@ -26,7 +25,7 @@ Access and review books from around the web
 
 **Project Title** 
 
-**Project Description** For those fans of the Fantasy/Adventure genre, BookViewer is a web application that lets the user search through a diverse list of Fantasy/Sci-fi novels.  The user select different books and find out more information regarding the book summary, book review, and how to buy the book._
+**Project Description** For those with diverse interest in literature, BookViewer is a web application that lets the user search through a wide arrange of literature from across the internet.  The user selects different books and can discover more information regarding the book summary, book details, and the book author._
 
 <br>
 
@@ -55,30 +54,23 @@ https://xd.adobe.com/view/5549ab60-97cd-4176-5eb5-117ce91bda4e-2378/ (url)
 ### MVP
 
 > Display set of books on the homepage
-> Provide the user with option to select and find more information about the book subject, summary, genre, how to purchase
-> Provide the user with the option to leave a review for the book
+> Provide the user with option to select and find more information about the book subject, summary, genre, and a viewer to read the first few chapters.
 > Provide user with the option to search for additional books/authors/titles
 
 **Book Viewer** 
 
-<br>
 
-
-<br>
 
 #### Libraries
 
-> Use this section to list all supporting libraries and their role in the project.
-
 |     Library      | Description                                |
 | :--------------: | :----------------------------------------- |
-|   React Router   | _Move and navigate around an application_ |
+|   React Router   | _Move and navigate around an application_  |
+|        Axios     | _Use the api data_  |
 
 <br>
 
 #### Data
-
-> Use the Data Section to define the API(s) you will be consuming for your project, inluding sample URL queries.
 
 |    API     | Quality Docs? | Website       | Sample Query                            |
 | :--------: | :-----------: | :------------ | :-------------------------------------- |
@@ -96,19 +88,15 @@ https://xd.adobe.com/view/5549ab60-97cd-4176-5eb5-117ce91bda4e-2378/ (url)
 
 #### Component Hierarchy
 
-> Use this section to define your React components and the data architecture of your app.
-
 ```
 src
 |__ assets/
-      |__ data-tests
       |__ images
 |__ components/
       |__ Header.jsx
-      |__ Search.jsx
-      |__ Review.jsx
-      |__ Book.jsx
-      |__ Books.jsx
+      |__ PublisherCollection.jsx
+      |__ BookDetails.jsx
+      |__ Input.jsx
       |__ App.jsx
       |__ Footer.jsx
 ```
@@ -117,16 +105,12 @@ src
 
 #### Component Breakdown
 
-> Use this section to go into further depth regarding your components, including breaking down the components as stateless or stateful, and considering the passing of data between those components.
-
 |  Component   |    Type    | State | Props | Description                                                      |
 | :----------: | :--------: | :---: | :---: | :--------------------------------------------------------------- |
-|    Header    | functional |   n   |   n   | _The header will contain the logo and home button._              |
-|  Search      |    class   |   y   |   n   | _The search will let the user find additional info._             |
-|   Review     |   class    |   y   |   n   | _The review will let the user write a review._                   |
-|   Book       | functional |   n   |   y   | _The book will display detail of the selected book._             |
-|   Books      | functional |   n   |   y   | _The Books will be the homepage that displays a list._           |
-|    Footer    | functional |   n   |   n   | _The footer will show info about me and a link to my portfolio._ |
+|         Header       | functional |   n   |   n   | _The header will contain a phrase that serves as a home button._              |   
+| Publisher Collection | functional |   n   |   y   | _The Publisher Collection will display the developer's favorite choice of books._             |
+|     Book Details     | functional |   n   |   y   | _The Book Details reveals additional info including a viewer to read the book._           |
+|        Footer        | functional |   n   |   n   | _The footer will show info about me and a link to my portfolio._ |
 
 
 <br>
@@ -140,31 +124,15 @@ src
 | Task                | Priority | Estimated Time | Time Invested | Actual Time |
 | ------------------- | :------: | :------------: | :-----------: | :---------: |
 |       Header        |    L     |     2 hrs      |     2 hrs     |    3 hrs    |
-|       Search        |    H     |     4 hrs      |     1 hrs     |     TBD     |
-|       Review        |    H     |     6 hrs      |     3 hrs     |     TBD     |
-|        Book         |    H     |     2 hrs      |     3 hrs     |     TBD     |
-|        Books        |    H     |     3 hrs      |     3 hrs     |     TBD     |
-|       Footer        |    L     |     3 hrs      |     3 hrs     |     TBD     |
-|        TOTAL        |    H     |     6 hrs      |     3 hrs     |     TBD     |
+|       Input         |    H     |     6 hrs      |     3 hrs     |     1 hr    |
+|    Book Details     |    H     |     2 hrs      |     3 hrs     |     6 hrs   |
+| PublisherCollection |    H     |     3 hrs      |     3 hrs     |     4 hrs   |
+|       Footer        |    L     |     2 hrs      |     1 hrs     |     1 hr    |
+|        TOTAL        |    H     |     6 hrs      |     3 hrs     |     15 hrs  |
 
 <br>
 
-#### Helper Functions
 
-> Functions that can be reused in other applications.
-
-|  Function  | Description                                |
-| :--------: | :----------------------------------------- |
-| Search | _This is an important function to recycle to reuse for user search capabilities._ |
-
-<br>
-
-### Post-MVP
-
-> Use this section to document ideas you've had that would be fun (or necessary) for your Post-MVP. This will be helpful when you return to your project after graduation!
-
-- _Add user account and auth capabilities._
-- _Utilize the Giphy API to welcome new users with funny gifs._
 
 <br>
 
@@ -177,9 +145,21 @@ src
 > 
 
 ```
-code snippet here
+let searchedResults = this.state.searchedBooks && <div className='parent-publisher'> {this.state.searchedBooks.map((book, index) => {
+    return (
+          <div className='publisher'>
+        <Link to={`/book/${book.id}`}>
+            <h2 onClick={this.showDetail}>{book.volumeInfo.title}</h2>
+        {book.volumeInfo.imageLinks ?
+          <img src={book.volumeInfo.imageLinks.thumbnail} /> : <h3>Waiting</h3>
+            }
+        </Link>
+          </div>)  
+      
+    })}</div>
 ```
 
 ### Code Issues & Resolutions
 
-> 
+> Ran into difficulty regarding using the embedded book viewer from the Google API into react.  
+> The viewer problem was resolved through adding on "&output=embed" at the end of the api endpoint for previewlink

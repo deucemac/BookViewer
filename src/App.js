@@ -78,7 +78,7 @@ class App extends Component {
 
   render() {
 
-    // let searchedResults = this.state.searchedBooks !== [] ? 
+   
     let searchedResults = this.state.searchedBooks && <div className='parent-publisher'> {this.state.searchedBooks.map((book, index) => {
     return (
           <div className='publisher'>
@@ -91,7 +91,7 @@ class App extends Component {
           </div>)  
       
     })}</div>
-//  : ''
+
     return (
       <>
       <Header />
