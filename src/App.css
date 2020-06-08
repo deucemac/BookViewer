@@ -99,6 +99,18 @@ footer {
   background-color: rgb(245, 230, 230);
   box-shadow: 0px -3px 3px grey;
 }
+.parent-footer {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  font-family: Lora, serif;
+}
+
+.footer-icon {
+  width: 20px;
+  height: 20px;
+  margin: 0 auto;
+}
 
 
 @media all and (max-width: 400px) {
