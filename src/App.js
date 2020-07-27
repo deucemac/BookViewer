@@ -22,10 +22,10 @@ class App extends Component {
       showDetail: false
     }
   }
-  
+
 
   async componentDidMount() {
-    
+
     const key = process.env.REACT_APP_TOKEN
     let booksPR = await axios(`https://www.googleapis.com/books/v1/volumes?q=patick+rothfuss&key%3D=${key}`)
     booksPR = booksPR.data.items
@@ -70,7 +70,7 @@ class App extends Component {
 
   showDetail = () => {
     this.setState({
-      showDetail: true 
+      showDetail: true
     })
   }
 
@@ -78,47 +78,47 @@ class App extends Component {
 
   render() {
 
-   
+
     let searchedResults = this.state.searchedBooks && <div className='parent-publisher'> {this.state.searchedBooks.map((book, index) => {
-    return (
-          <div className='publisher'>
-        <Link to={`/book/${book.id}`}>
+      return (
+        <div className='publisher'>
+          <Link to={`/book/${book.id}`}>
             <h2 onClick={this.showDetail}>{book.volumeInfo.title}</h2>
-        {book.volumeInfo.imageLinks ?
-          <img src={book.volumeInfo.imageLinks.thumbnail} /> : <h3>Waiting</h3>
+            {book.volumeInfo.imageLinks ?
+              <img src={book.volumeInfo.imageLinks.thumbnail} /> : <h3>Waiting</h3>
             }
-        </Link>
-          </div>)  
-      
+          </Link>
+        </div>)
+
     })}</div>
 
     return (
       <>
-      <Header />
-      <div id="fb-root"></div>  
-      <div className='body'>
-      
-        <Input handleChange={this.handleChange} />
-        
+        <Header />
+        <div id="fb-root"></div>
+        <div className='body'>
 
-        <Route path='/' exact>
-        {this.state.searchedBooks.length === 0 &&
-        
-            <PublisherCollection books={this.state.books} />
-          }
-        {searchedResults}
+          <Input handleChange={this.handleChange} />
+
+
+          <Route path='/' exact>
+            {this.state.searchedBooks.length === 0 &&
+
+              <PublisherCollection books={this.state.books} />
+            }
+            {searchedResults}
           </Route>
 
           <Route path='/book/:bookId'>
             <BookDetails bookInfo={this.state.books} searchedBooks={this.state.searchedBooks} />
           </Route>
-           
-        
-        
+
+
+
 
         </div>
         <Footer />
-        </>
+      </>
     )
 
   }
