@@ -27,9 +27,11 @@ class App extends Component {
   async componentDidMount() {
 
     const key = process.env.REACT_APP_TOKEN
-    let booksPR = await axios(`https://www.googleapis.com/books/v1/volumes?q=patick+rothfuss&key%3D=${key}`)
-    booksPR = booksPR.data.items
-    booksPR.splice(2, 10)
+    // let booksPR = await axios(`https://www.googleapis.com/books/v1/volumes?q=patick+rothfuss&key%3D=${key}`)
+    // booksPR = booksPR.data.items
+    // booksPR.splice(2, 10)
+    // console.log(booksPR)
+    // booksPR.splice(1, 1)
 
     let booksT = await axios(`https://www.googleapis.com/books/v1/volumes?q=ring+inauthor:tolkien&key%3D=${key}`)
     booksT = booksT.data.items
@@ -46,8 +48,9 @@ class App extends Component {
 
 
     this.setState({
-      books: [...booksPR, ...booksT, ...booksGM]
+      books: [ ...booksT, ...booksGM]
     })
+    console.log(this.state.books)
   }
 
 

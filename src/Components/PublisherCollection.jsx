@@ -5,7 +5,7 @@ export default function PublisherCollection(props) {
   return (
     
     <div className='parent-publisher'>
-      {props.books.map((book, index) => {
+      {props.books && props.books.map((book, index) => {
         return (
           <div className='publisher'>
             <Link to={`book/${book.id}`}><h1>{book.volumeInfo.title}</h1>
